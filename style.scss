@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(190deg, rgb(245, 245, 245), rgb(120, 122, 204));
+    font-family:'Source Code Pro', monospace;
+    color: rgb(53, 54, 92)
+}
+
+#app{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.main{
+    height: 85%;
+    width: 85%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: .5em;
+
+    h1{
+        margin-left: 1em;
+        margin-top: .5em;
+        font-size: 1.5em;
+    }
+    
+}
+
+.graph-container{
+    
+    width: 500px;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+
+    .total{
+        font-size: 2em;
+        font-weight: 400;
+        position: absolute;
+        transform: translateY(20px);
+    }
+}
+
+dialog{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 500px;
+    border-radius: .5em;
+
+    h1{
+        text-align: center;
+        font-size: 1.5em;
+        padding: 1em;
+    }
+
+    table{
+        width: 100%;
+        border-spacing: 0;
+    }
+
+    th,td{
+        padding: .5em
+    }
+
+    th{
+        background-color: rgba(120, 122, 204, 0.3);
+    }
+
+    td{
+        text-align: center;
+    }
+
+    .btn-close{
+
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        width: 2.5em;
+        aspect-ratio: 1/1;
+    }
+
+    .btn-add{
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        width: 2.5em;
+        aspect-ratio: 1/1;
+    }
+
+    .unlock{
+        cursor: pointer;
+    }
+}
+
+.btn{
+    padding: .5em;
+    background-color: transparent;
+    border: 2px solid rgb(120, 122, 204);
+    border-radius: .5em;
+    color:rgb(120, 122, 204);
+    outline: none;
+
+    &:hover,
+    &:focus{
+        background-color: rgb(120, 122, 204);
+        color: white;
+    }
+}
+
+input{
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    background-color: rgb(120, 122, 204, 0.2);
+    border-radius: .5em;
+    outline: none;
+    padding: .15em;
+
+    &.sm{
+        width: 8em;
+    }
+
+    &:read-only{
+        cursor: default;
+        background-color: transparent;
+    }
+} 
+

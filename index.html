@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script defer src="script.js"></script>
+    <title>Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <h1>$pba</h1>
+            <div class="graph-container">
+                <canvas id="graph">
+                </canvas>
+                <span class="total">${{total.toLocaleString()}}</span>
+            </div>
+        </div>
+        <dialog>
+            <h1>{{selected_category.title}}</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripcion</th>
+                        <th>Fecha</th>
+                        <th>Importe</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,i) of selected_category.items">
+                        <td><input type="text" v-model="item.description" :readonly="!item.editable"></td>
+                        <td><input type="text" v-model="item.date" :readonly="!item.editable"></td>
+                        <td>$<input class="sm" type="text" v-model="item.value" :readonly="!item.editable"></td>
+                        <td class="unlock" @click="toggleEditable(i)">🔒︎</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-add" @click="addItem()">+</button>
+            <button class="btn btn-close" @click="closeModal()">X</button>
+        </dialog>
+    </div>
+</body>
+</html>
+<script>
+
+</script>
