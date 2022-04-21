@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap');
 
+:root{
+    --principal: rgb(245, 245, 245);
+    --secondary: rgb(120, 122, 204);
+    --text: rgb(53, 54, 92);
+    --main-bg: rgba(255, 255, 255, 0.2);
+}
+
+.dark{
+    --principal: rgb(107, 110, 170);
+    --secondary: rgb(53, 54, 92);
+    --text: rgb(238, 229, 229);
+    --main-bg: rgba(255, 255, 255, .4);
+}
 
 *{
     margin: 0;
@@ -9,9 +22,9 @@
 
 body{
     min-height: 100vh;
-    background: linear-gradient(190deg, rgb(245, 245, 245), rgb(120, 122, 204));
+    background: linear-gradient(180deg, var(--principal), var(--secondary));
     font-family:'Source Code Pro', monospace;
-    color: rgb(53, 54, 92)
+    color: var(--text);
 }
 
 #app{
@@ -23,7 +36,7 @@ body{
 .main{
     height: 85%;
     width: 85%;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--main-bg);
     border-radius: .5em;
 
     h1{
@@ -48,14 +61,14 @@ body{
     .total{
         font-size: 2em;
         font-weight: 400;
-        position: absolute;
-        transform: translateY(20px);
+        position: absolute; 
     }
 }
 
 dialog{
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--principal);
+    opacity: .9;
     border: none;
     top: 50%;
     left: 50%;
@@ -63,6 +76,8 @@ dialog{
     width: 700px;
     height: 500px;
     border-radius: .5em;
+    overflow-x: hidden;
+    color: var(--text);
 
     h1{
         text-align: center;
@@ -104,23 +119,32 @@ dialog{
         aspect-ratio: 1/1;
     }
 
-    .unlock{
+    .unlock,
+    .delete{
         cursor: pointer;
+
+        &:hover{
+            transform: scale(1.1);
+            color: var(--secondary);
+        }
     }
+
+    
+
 }
 
 .btn{
     padding: .5em;
     background-color: transparent;
-    border: 2px solid rgb(120, 122, 204);
+    border: 2px solid var(--text);
     border-radius: .5em;
-    color:rgb(120, 122, 204);
+    color:var(--text);
     outline: none;
+    cursor: pointer;
 
-    &:hover,
-    &:focus{
-        background-color: rgb(120, 122, 204);
-        color: white;
+    &:hover{
+        border-color: var(--secondary);
+        color: var(--secondary);
     }
 }
 
@@ -134,6 +158,8 @@ input{
     border-radius: .5em;
     outline: none;
     padding: .15em;
+    accent-color: rgb(120, 122, 204, 1);
+    color: var(--text);
 
     &.sm{
         width: 8em;
@@ -145,3 +171,14 @@ input{
     }
 } 
 
+.darkmode{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    width: 2em;
+    aspect-ratio: 1;
+    font-size: 1.25em;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

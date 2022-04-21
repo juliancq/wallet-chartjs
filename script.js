@@ -70,8 +70,9 @@ let app = new Vue({
             options: {
                 plugins: {
                     legend: {
-                        display : true
-                    }
+                        display : false
+                    },
+
                 },
                 layout : {
                     padding: 20
@@ -85,7 +86,7 @@ let app = new Vue({
                 borderColor : "rgba(0,0,0,0)"
             }
             })
-            this.$forceUpdate();
+            
         },
 
         openModal(index){
@@ -95,6 +96,9 @@ let app = new Vue({
         },
 
         closeModal(){
+           
+            if(!document.querySelector('#items-table').reportValidity()) return;
+
             document.querySelector("dialog").close();
             this.selected_category.items.forEach(item => item.editable = false);
             this.parseData();
@@ -110,13 +114,24 @@ let app = new Vue({
             })
         },
 
+        deleteItem(index){
+
+            this.selected_category.items.splice(index, 1);
+            this.parseData();
+            this.renderGraph();
+            
+        },
+
         toggleEditable(index){
 
             this.selected_category.items[index].editable = !this.selected_category.items[index].editable
             this.$forceUpdate();
         },
 
-
+        toggleMode(){
+            console.log("hola")
+            document.querySelector('body').classList.toggle('dark');
+        }
     },
     computed: {
         total(){

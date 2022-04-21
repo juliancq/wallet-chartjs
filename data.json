@@ -8,17 +8,17 @@
                     {
                         "description" : "Expensas",
                         "value" : 3000,
-                        "date" : "08-07"
+                        "date" : "2022-08-07"
                     },
                     {
                         "description" : "Alquiler",
                         "value" : 45000,
-                        "date" : "25-07"
+                        "date" : "2022-08-07"
                     },
                     {
                         "description" : "Servicios",
                         "value" : 5000,
-                        "date" : "08-06"
+                        "date" : "2022-08-07"
                     }
                 ]
             },
@@ -30,12 +30,12 @@
                     {
                         "description" : "Nafta",
                         "value" : 3000,
-                        "date" : "08-07"
+                        "date" : "2022-08-07"
                     },
                     {
                         "description" : "Seguro",
                         "value" : 3300,
-                        "date" : "15-07"
+                        "date" : "2022-08-07"
                     }
                 ]
             },
@@ -47,12 +47,12 @@
                     {
                         "description" : "Cooperativa",
                         "value" : 7000,
-                        "date" : "08-07"
+                        "date" : "2022-08-07"
                     },
                     {
                         "description" : "Carrefour",
                         "value" : 10000,
-                        "date" : "15-07"
+                        "date" : "2022-08-07"
                     }
                 ]
             }

@@ -1,4 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap");
+:root {
+  --principal: rgb(245, 245, 245);
+  --secondary: rgb(120, 122, 204);
+  --text: rgb(53, 54, 92);
+  --main-bg: rgba(255, 255, 255, 0.2);
+}
+
+.dark {
+  --principal: rgb(107, 110, 170);
+  --secondary: rgb(53, 54, 92);
+  --text: rgb(238, 229, 229);
+  --main-bg: rgba(255, 255, 255, .4);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +21,9 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(190deg, rgb(245, 245, 245), rgb(120, 122, 204));
+  background: linear-gradient(180deg, var(--principal), var(--secondary));
   font-family: "Source Code Pro", monospace;
-  color: rgb(53, 54, 92);
+  color: var(--text);
 }
 
 #app {
@@ -21,7 +35,7 @@ body {
 .main {
   height: 85%;
   width: 85%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--main-bg);
   border-radius: 0.5em;
 }
 .main h1 {
@@ -44,12 +58,12 @@ body {
   font-size: 2em;
   font-weight: 400;
   position: absolute;
-  transform: translateY(20px);
 }
 
 dialog {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--principal);
+  opacity: 0.9;
   border: none;
   top: 50%;
   left: 50%;
@@ -57,6 +71,8 @@ dialog {
   width: 700px;
   height: 500px;
   border-radius: 0.5em;
+  overflow-x: hidden;
+  color: var(--text);
 }
 dialog h1 {
   text-align: center;
@@ -90,21 +106,28 @@ dialog .btn-add {
   width: 2.5em;
   aspect-ratio: 1/1;
 }
-dialog .unlock {
+dialog .unlock,
+dialog .delete {
   cursor: pointer;
+}
+dialog .unlock:hover,
+dialog .delete:hover {
+  transform: scale(1.1);
+  color: var(--secondary);
 }
 
 .btn {
   padding: 0.5em;
   background-color: transparent;
-  border: 2px solid rgb(120, 122, 204);
+  border: 2px solid var(--text);
   border-radius: 0.5em;
-  color: rgb(120, 122, 204);
+  color: var(--text);
   outline: none;
+  cursor: pointer;
 }
-.btn:hover, .btn:focus {
-  background-color: rgb(120, 122, 204);
-  color: white;
+.btn:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
 }
 
 input {
@@ -117,6 +140,8 @@ input {
   border-radius: 0.5em;
   outline: none;
   padding: 0.15em;
+  accent-color: rgb(120, 122, 204);
+  color: var(--text);
 }
 input.sm {
   width: 8em;
@@ -128,4 +153,16 @@ input:-moz-read-only {
 input:read-only {
   cursor: default;
   background-color: transparent;
+}
+
+.darkmode {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  width: 2em;
+  aspect-ratio: 1;
+  font-size: 1.25em;
+  position: absolute;
+  right: 0;
+  top: 0;
 }/*# sourceMappingURL=style.css.map */

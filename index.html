@@ -8,10 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script defer src="script.js"></script>
     <title>Wallet</title>
+    <link rel="icon" type="image/gif" href="assets/coin.png">
     <link rel="stylesheet" href="style.css">
+    
 </head>
-<body>
+<body class="dark">
     <div id="app">
+        <button class="darkmode" @click="toggleMode()">💡</button>
         <div class="main">
             <h1>$pba</h1>
             <div class="graph-container">
@@ -22,26 +25,30 @@
         </div>
         <dialog>
             <h1>{{selected_category.title}}</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Descripcion</th>
-                        <th>Fecha</th>
-                        <th>Importe</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(item,i) of selected_category.items">
-                        <td><input type="text" v-model="item.description" :readonly="!item.editable"></td>
-                        <td><input type="text" v-model="item.date" :readonly="!item.editable"></td>
-                        <td>$<input class="sm" type="text" v-model="item.value" :readonly="!item.editable"></td>
-                        <td class="unlock" @click="toggleEditable(i)">🔒︎</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn btn-add" @click="addItem()">+</button>
-            <button class="btn btn-close" @click="closeModal()">X</button>
+            <form id="items-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Descripcion</th>
+                            <th>Fecha</th>
+                            <th>Importe</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item,i) of selected_category.items">
+                            <td class="unlock" @click="toggleEditable(i)">🔒︎</td>
+                            <td><input type="text" v-model="item.description" :readonly="!item.editable" required></td>
+                            <td><input type="date" v-model="item.date" :readonly="!item.editable" required></td>
+                            <td>$<input class="sm" type="number" min="0" v-model="item.value" :readonly="!item.editable" @input="()=> { parseData(); renderGraph() }"></td>
+                            <td class="delete" @click="deleteItem(i)">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-add" @click="addItem()">+</button>
+                <button type="button" class="btn btn-close" @click="closeModal()">X</button>
+            </form>
         </dialog>
     </div>
 </body>
